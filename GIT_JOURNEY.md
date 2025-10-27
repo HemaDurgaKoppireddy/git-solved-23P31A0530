@@ -82,7 +82,48 @@ merge conflicts across multiple branches using proper Git workflows.
 
 ### Merge 2: main + conflict-simulator (6 files)
 
-[Document the second set of conflicts similarly]
+### Conflict 1: config/deployment-settings.ini
+- **Issue**: main used auto-deploy while conflict-simulator required manual approval.
+- **Resolution**: Integrated both approaches by adding a toggle option for auto-deploy.
+- **Strategy**: Introduced [deployment] section with auto_deploy = true/false in config.
+- **Difficulty**: Medium
+- **Time**: 12 minutes
+
+### Conflict 2: scripts/backup.py
+- **Issue**: Different backup paths and scheduling systems between branches.
+- **Resolution**: Merged logic to allow both schedule types using command-line parameters.
+- **Strategy**: Implemented flexible configuration using argparse for schedule and destination.
+- **Difficulty**: Medium
+- **Time**: 15 minutes
+
+### Conflict 3: scripts/monitor.js
+- **Issue**: main logged to console; conflict-simulator logged to file.
+- **Resolution**: Added configuration to choose between console or file-based logging.
+- **Strategy**: Introduced LOG_MODE environment variable to switch dynamically.
+- **Difficulty**: Medium
+- **Time**: 10 minutes
+
+### Conflict 4: docs/api-reference.md
+- **Issue**: Different API endpoints and documentation formats.
+- **Resolution**: Combined both lists, keeping all unique endpoints.
+- **Strategy**: Labeled simulator-specific APIs with “(Simulator)” for clarity.
+- **Difficulty**: Easy
+- **Time**: 10 minutes
+
+### Conflict 5: README.md
+- **Issue**: main focused on deployment; conflict-simulator added simulation setup.
+- **Resolution**: Merged both sections with clear headings.
+- **Strategy**: Organized README into “Deployment Guide” and “Simulation Guide” sections.
+- **Difficulty**: Easy
+- **Time**: 10 minutes
+
+### Conflict 6: CHANGELOG.md
+- **Issue**: Different release versions and descriptions.
+- **Resolution**: Combined both chronologically with simulator notes.
+- **Strategy**: Used semantic versioning and appended -sim tag for simulator updates.
+- **Difficulty**: Easy
+- **Time**: 8 minutes
+
 
 ## Most Challenging Parts
 
